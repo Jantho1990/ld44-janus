@@ -109,16 +109,18 @@ func on_Door_accessed(data):
 	print("Door was accessed: ", data)
 	var current_map_index = data.map_index
 	
-	var total_maps = loaded_maps.size()
+	# We will use this for generating the next map
+	# later on in the function
+	var upper_bound = loaded_maps.size() - 1
 	
 	var valid = false
 	var new_map_index
 	while not valid:
-		new_map_index = math.rand(1, total_maps)
+		new_map_index = math.rand(0, upper_bound)
 		if new_map_index != current_map_index:
 			valid = true
 	
-	set_active_map(loaded_maps[new_map_index - 1])
+	set_active_map(loaded_maps[new_map_index])
 	active_map.random_spawn($Player)
 
 func on_Entity_spawn(data):

@@ -80,8 +80,8 @@ func set_active_map(map):
 	if active_map != null:
 		# Turn off error messages because collisions are being monitored.
 		# See: https://godotdevelopers.org/forum/discussion/19461/how-do-you-solving-changing-scene-with-collision-is-progress
-		for portal in active_map.portals:
-			portal.monitoring = false
+		for door in active_map.doors:
+			door.monitoring = false
 #		if active_map.has_node("EnemyContainer"):
 #			for enemy in active_map.get_node("EnemyContainer").get_children():
 #				enemy.monitoring = false
@@ -107,6 +107,19 @@ func on_Portal_teleport(data):
 
 func on_Door_accessed(data):
 	print("Door was accessed: ", data)
+	var current_map_index = data.map_index
+	
+	var total_maps = loaded_maps.size()
+	
+	var valid = false
+	var new_map_index
+	while not valid:
+		new_map_index = math.rand(1, total_maps)
+		if new_map_index != current_map_index:
+			valid = true
+	
+	set_active_map(loaded_maps[new_map_index - 1])
+	active_map.random_spawn($Player)
 
 func on_Entity_spawn(data):
 	var entity = data.entity

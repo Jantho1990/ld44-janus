@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/placeholder/Placeholder.tres" type="TileSet" id=2]
 [ext_resource path="res://maps/TileMap.gd" type="Script" id=3]
 [ext_resource path="res://entities/generators/DoorGenerator/DoorGenerator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://containers/DoorContainer/DoorContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://entities/doors/PlaceholderDoor/PlaceholderDoor.tscn" type="PackedScene" id=6]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,7 +21,4 @@ target_container_id = "DoorTestMap2"
 
 [node name="DoorContainer" parent="." instance=ExtResource( 5 )]
 container_id = "DoorTestMap2"
-
-[node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 336, 240 )
 

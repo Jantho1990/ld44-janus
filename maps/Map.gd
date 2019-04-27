@@ -2,7 +2,7 @@ extends Node
 
 signal map_loaded
 
-const MINIMUM_SPAWN_DISTANCE = 192
+const MINIMUM_SPAWN_DISTANCE = 20
 
 export(int) var min_random_doors = 3
 export(int) var max_random_doors = 5
@@ -102,5 +102,6 @@ func spawn_acceptable(tilemap, pos):
 				child._class_name == "Portal" and \
 				pos.distance_to(child.position) < MINIMUM_SPAWN_DISTANCE:
 					return false
-			else:
-				print("SPAWN DISTANCE ", pos.distance_to(child.position), " ", MINIMUM_SPAWN_DISTANCE, " ", (pos.distance_to(child.position) < MINIMUM_SPAWN_DISTANCE))
+#			else:
+#				print("SPAWN DISTANCE ", pos.distance_to(child.position), " ", MINIMUM_SPAWN_DISTANCE, " ", (pos.distance_to(child.position) < MINIMUM_SPAWN_DISTANCE))
+	return true

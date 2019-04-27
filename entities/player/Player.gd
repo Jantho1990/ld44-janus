@@ -148,16 +148,18 @@ func height():
 func hit(damage, source = null):
 #	$SanityCaster.drain_sanity(damage)
 	print("HIT DAMAGE:", damage, " FROM ", source)
-	$MovementHandler.freeze()
-	immobile_timer = Timer.new()
-	immobile_timer.start(0.5)
-	immobile_timer.connect("timeout", self, "_on_Immobile_timer_end")
-	motion.y = -200
-	motion.x = 400 * sign(source.direction.x if source != null else 0)
-	$HitSplatter.emitting = true
-	move_and_slide(motion, UP)
-	add_child(immobile_timer)
-	print("freeze")
+	health.hurt(damage)
+	if source != null:
+		$MovementHandler.freeze()
+		immobile_timer = Timer.new()
+		immobile_timer.start(0.5)
+		immobile_timer.connect("timeout", self, "_on_Immobile_timer_end")
+		motion.y = -200
+		motion.x = 400 * sign(source.direction.x if source != null else 0)
+		$HitSplatter.emitting = true
+		move_and_slide(motion, UP)
+		add_child(immobile_timer)
+		print("freeze")
 
 func _on_Immobile_timer_end():
 	print("unfreeze")

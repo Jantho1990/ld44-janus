@@ -2,12 +2,11 @@ extends Area2D
 
 class_name Door
 
-export(int) var map_index = null
 
 const MINIMUM_SPAWN_DISTANCE = 20
 
 var player_overlap = false
-var current_map_index = null
+var map_index = null
 var generator
 
 func _ready():

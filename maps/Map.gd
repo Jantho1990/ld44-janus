@@ -15,7 +15,7 @@ onready var total_maps = get_parent().maps.size()
 ###
 var Door = preload("res://entities/doors/PlaceholderDoor/PlaceholderDoor.tscn")
 
-var map_index = null
+var map_index
 var doors = null setget ,get_doors
 var totem
 
@@ -75,6 +75,8 @@ func random_spawn(entity):
 	
 	# Create the entity
 	entity.position = spawn
+	if "map_index" in entity:
+		entity.map_index = map_index
 
 # Return a random tile from that map.
 func random_tile():

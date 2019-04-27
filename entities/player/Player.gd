@@ -154,7 +154,7 @@ func hit(damage, source = null):
 	immobile_timer.connect("timeout", self, "_on_Immobile_timer_end")
 	motion.y = -200
 	motion.x = 400 * sign(source.direction.x if source != null else 0)
-	$SanitySplatter.emitting = true
+	$HitSplatter.emitting = true
 	move_and_slide(motion, UP)
 	add_child(immobile_timer)
 	print("freeze")
@@ -162,7 +162,7 @@ func hit(damage, source = null):
 func _on_Immobile_timer_end():
 	print("unfreeze")
 	$MovementHandler.unfreeze()
-	$SanitySplatter.emitting = false
+	$HitSplatter.emitting = false
 	remove_child(immobile_timer)
 
 func move_down():

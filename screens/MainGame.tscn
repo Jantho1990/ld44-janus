@@ -9,7 +9,8 @@
 
 [node name="WorldMap" type="Node" parent="."]
 script = ExtResource( 1 )
-maps = [ "res://maps/test/TestMap1.tscn" ]
+maps = [ "res://maps/test/TestMap1.tscn", "res://maps/test/TestMap2.tscn" ]
+active_map_index = 1
 
 [node name="Player" parent="WorldMap" instance=ExtResource( 2 )]
 

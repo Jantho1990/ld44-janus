@@ -53,6 +53,11 @@ func _ready():
 	EventBus.dispatch(name + "_loaded", {
 		"node": self
 	})
+	
+	EventBus.dispatch("update_ui_life_bar", {
+		"current": health.current,
+		"total": health.maximum
+	})
 
 func _physics_process(delta):
 #	$SanityCaster.mana_current = $Health.current	
@@ -149,6 +154,7 @@ func hit(damage, source = null):
 #	$SanityCaster.drain_sanity(damage)
 	print("HIT DAMAGE:", damage, " FROM ", source)
 	health.hurt(damage)
+	
 	if source != null:
 		$MovementHandler.freeze()
 		immobile_timer = Timer.new()
@@ -160,6 +166,10 @@ func hit(damage, source = null):
 		move_and_slide(motion, UP)
 		add_child(immobile_timer)
 		print("freeze")
+	
+	EventBus.dispatch("update_ui_life_bar", {
+		"current": health.current
+	})
 
 func _on_Immobile_timer_end():
 	print("unfreeze")

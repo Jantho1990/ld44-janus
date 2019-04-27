@@ -88,8 +88,8 @@ func set_active_map(map):
 		remove_child(active_map)
 	active_map = map
 	add_child(active_map)	
-	for portal in active_map.portals:
-		portal.monitoring = true
+	for door in active_map.doors:
+		door.monitoring = true
 #	if active_map.has_node("EnemyContainer"):
 #		for enemy in active_map.get_node("EnemyContainer").get_children():
 #			enemy.monitoring = false

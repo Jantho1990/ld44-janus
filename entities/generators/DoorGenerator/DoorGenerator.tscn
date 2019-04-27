@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/generators/DoorGenerator/DoorGenerator.gd" type="Script" id=1]
+
+[node name="DoorGenerator" type="Node2D"]
+script = ExtResource( 1 )
+Entity = "res://entities/doors/PlaceholderDoor/PlaceholderDoor.tscn"
+spawn_at_start = 3
+spawn_rate = 0.0
+maximum_entities = 3
+maximum_increase_rate = 0.0
+maximum_increase_limit = 0
+randomize_spawn = true
+

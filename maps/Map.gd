@@ -2,16 +2,21 @@ extends Node
 
 signal map_loaded
 
+const MINIMUM_SPAWN_DISTANCE = 192
+
+export(int) var min_random_doors = 3
+export(int) var max_random_doors = 5
+
 onready var Tilemap = $TileMap
-onready var tome = $Tome
+onready var total_maps = get_parent().maps.size()
 
-
-var has_exit_portal = false
-var exit_portal
-var auto_link
+###
+# Resources
+###
+var Door = preload("res://entities/doors/PlaceholderDoor/PlaceholderDoor.tscn")
 
 var map_index = null
-var portals = null
+var doors = null setget ,get_doors
 var totem
 
 func _ready():
@@ -19,53 +24,18 @@ func _ready():
 	# Initialization here
 	print("loading map...", map_index)
 	
-	if get_parent().get("auto_link") != null:
-		auto_link = get_parent().auto_link
-	
 	# Randomly spawn the portal locations
 	var i = null
 	var total_maps = null
-	portals = helpers.array_filter(get_children(), funcref(self, "find_portals"))
-	if auto_link:
-		total_maps = get_parent().maps.size()
-		i = map_index - 1
-		if i < 0:
-			i = total_maps - 1
-#	for portal in portals:
-#		random_spawn(portal)
-#		portal.current_map_index = self.map_index
-#		if auto_link:
-#			portal.map_index = i
-#			i += 2
-#			if i >= total_maps:
-#				i -= total_maps
-		
-	# For now, assume there will only ever be two portals
-#	while have_same_spawn(portals[0], portals[1]):
-#		random_spawn(portals[0])
-	
-	# Randomly spawn the location of the tome
-#	random_spawn(tome)
-#	tome.position += Vector2(tome.width / 2, 0)
-	
-	# If this map has the exit portal, create it.
-	if has_exit_portal == true:
-#		exit_portal.instance()
-		random_spawn(exit_portal)
-		add_child(exit_portal)
 	
 	# Map is loaded, trigger any code that is waiting on this.
 	EventBus.dispatch(name + "_loaded", {
 		"node": self
 	})
-#	emit_signal("map_loaded")
 
-# Find Portal nodes.
-func find_portals(node):
-	#if node.has("_class_name") && node._class_name == "Portal":
-	if "_class_name" in node && node._class_name == "Portal":
-		return true
-	return false
+# Get map doors
+func get_doors():
+	return $DoorContainer.get_children()
 
 # Get player from parent WorldMap
 func get_player_from_parent():
@@ -80,10 +50,19 @@ func random_spawn(entity):
 	var valid = false
 	var spawn = null
 	
-	var failct = 0
+	var failct = -1
 	while not valid:
+		failct += 1
+		if failct > 1000:
+			print("Fail count exceeded.")
+			break
 		# Generate a random cell from the map grid
 		spawn = Tilemap.random_cell_pos()
+		
+		# Pass the map's validation first.
+		if not spawn_acceptable(Tilemap, spawn):
+			valid = false
+			continue
 		
 		# Validate that this random cell is a valid spawn point
 		if not entity.has_method("spawn_acceptable"):
@@ -104,3 +83,24 @@ func random_tile():
 # Return a random tile location on the map.
 func random_tile_pos():
 	return Tilemap.random_cell_pos()
+
+# Return true if entity is one of these types.
+func is_ignored_entity(entity):
+	var name_of_class = entity.get_class()
+	if name_of_class.find("Generator") > -1 or \
+		name_of_class.find("Container") > -1:
+			return true
+	return false
+
+# Make sure the map considers a spawn acceptable.
+func spawn_acceptable(tilemap, pos):
+	for child in get_children():
+		if not is_ignored_entity(child) and child.get("position") != null:
+			if pos == child.position:
+				return false
+			elif child.get("_class_name") != null and \
+				child._class_name == "Portal" and \
+				pos.distance_to(child.position) < MINIMUM_SPAWN_DISTANCE:
+					return false
+			else:
+				print("SPAWN DISTANCE ", pos.distance_to(child.position), " ", MINIMUM_SPAWN_DISTANCE, " ", (pos.distance_to(child.position) < MINIMUM_SPAWN_DISTANCE))

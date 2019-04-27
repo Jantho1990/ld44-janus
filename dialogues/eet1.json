@@ -1,0 +1,16 @@
+{
+    "first": {
+        "type": "text",
+        "content": "Your eyelids slowly slide up, allowing a blur of light to hit your eyes.",
+        "next": "1a"
+    },
+    "1a": {
+        "type": "text",
+        "content": "...huh?",
+        "next": "1b"
+    },
+    "1b": {
+        "type": "text",
+        "content": "You aren't at home, lying on your bed. You're...where are you?|||@@You sit up with a violent jerk, looking around."
+    }
+}

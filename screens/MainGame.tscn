@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/WorldMap.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=2]
+
+[node name="MainGame" type="Node"]
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="WorldMap" type="Node" parent="."]
+script = ExtResource( 1 )
+maps = [ "res://maps/test/TestMap1.tscn" ]
+
+[node name="Player" parent="WorldMap" instance=ExtResource( 2 )]
+

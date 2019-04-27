@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="LD44 - Janus"
+run/main_scene="res://screens/MainGame.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+global="*res://scripts/global.gd"
+GlobalStore="*res://scripts/DataStore.gd"
+math="*res://scripts/math.gd"
+helpers="*res://scripts/helpers.gd"
+EventBus="*res://scripts/EventBus.gd"
+Sound="*res://scripts/Sound.gd"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

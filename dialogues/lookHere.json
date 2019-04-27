@@ -1,0 +1,11 @@
+{
+    "first": {
+        "type": "text",
+        "content": "Look...you can jump down here!",
+        "next": "lookHere2"
+    },
+    "lookHere2": {
+        "type": "text",
+        "content": "Ok, I was really just testing out triggers and using a cinematic camera."
+    }
+}

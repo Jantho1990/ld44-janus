@@ -1,0 +1,11 @@
+{
+    "first": {
+        "type": "text",
+        "content": "Hey! Where you going?",
+        "next": "hey2"
+    },
+    "hey2": {
+        "type": "text",
+        "content": "I wasn't done talking, yet!"
+    }
+}

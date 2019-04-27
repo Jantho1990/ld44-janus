@@ -25,3 +25,11 @@ func on_Add_entity(data):
 			entity = entity.instance()
 	
 		add_child(entity)
+
+# Remove all children from the container.
+func clear_children():
+	for child in get_children():
+		remove_child(child)
+		child.queue_free()
+	
+	EventBus.dispatch(container_id + "_children_cleared")

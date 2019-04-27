@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name EntityGenerator
+
 # The entity being spawned.
 export(String, FILE, "*.tscn") var Entity = null
 
@@ -38,11 +40,14 @@ export(String) var target_container_id
 # must be created as a child of a Map.
 onready var map = get_parent()
 
+var map_loaded = false
+
 func _ready():
 	#map.connect("map_loaded", self, "on_Map_loaded")
 #	EventBus.listen("WorldMap_loaded", self, "on_WorldMap_loaded")
 	EventBus.listen("Map_loaded", self, "on_Map_loaded")
 	EventBus.listen("entity_dead", self, "on_Entity_dead")
+	EventBus.listen(target_container_id + "_children_cleared", self, "on_Children_cleared")
 	
 	if Entity == null:
 		print("Generator " + name + " requires an entity.")
@@ -53,6 +58,9 @@ func _ready():
 func _physics_process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
+	if not map_loaded:
+		return
+	
 	entity_spawn_counter += delta
 	if allowed_to_spawn():
 		make_entity()
@@ -71,6 +79,7 @@ func on_WorldMap_loaded(data):
 #	var world_map = data.node
 
 func on_Map_loaded(data):
+	map_loaded = true
 	if map == null:
 		map = data.node
 		
@@ -109,3 +118,9 @@ func allowed_to_spawn():
 	return entity_count < maximum_increase_limit and \
 		entity_count < maximum_entities and \
 		entity_spawn_counter / spawn_rate > 1
+
+# Reset counters to zero if the target container's children were cleared.
+func on_Children_cleared():
+	entity_count = 0
+	entity_spawn_counter = 0
+	maximum_entity_increase_counter = 0

@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "DoorGenerator",
 "language": "GDScript",
 "path": "res://entities/generators/DoorGenerator/DoorGenerator.gd"
+}, {
+"base": "Node2D",
+"class": "EntityGenerator",
+"language": "GDScript",
+"path": "res://entities/generators/EntityGenerator/EntityGenerator.gd"
 } ]
 _global_script_class_icons={
 "Door": "",
 "DoorContainer": "",
-"DoorGenerator": ""
+"DoorGenerator": "",
+"EntityGenerator": ""
 }
 
 [application]

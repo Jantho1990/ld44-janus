@@ -2,13 +2,14 @@ extends Node
 
 signal map_loaded
 
-const MINIMUM_SPAWN_DISTANCE = 20
+const MINIMUM_SPAWN_DISTANCE = 192
 
 export(int) var min_random_doors = 3
 export(int) var max_random_doors = 5
 
 onready var Tilemap = $TileMap
 onready var total_maps = get_parent().maps.size()
+onready var DoorContainer = $DoorContainer
 
 ###
 # Resources

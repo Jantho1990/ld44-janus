@@ -121,6 +121,7 @@ func on_Door_accessed(data):
 			valid = true
 	
 	set_active_map(loaded_maps[new_map_index])
+	active_map.DoorContainer.clear_children()
 	active_map.random_spawn($Player)
 
 func on_Entity_spawn(data):

@@ -25,7 +25,7 @@ func _ready():
 	else:
 		print("No player found.")
 		
-	EventBus.listen('portal_teleport', self, 'on_Portal_teleport')
+	EventBus.listen('door_accessed', self, 'on_Door_accessed')
 	
 	load_maps()
 	
@@ -104,6 +104,9 @@ func on_Portal_teleport(data):
 		if portal.map_index == prev_index:
 			$Player.position = portal.position + Vector2($Player.width, $Player.height) + Vector2(0, 3) # 3 seems to be the magic number to prevent falling animation while still allowing jumps
 			break
+
+func on_Door_accessed(data):
+	print("Door was accessed: ", data)
 
 func on_Entity_spawn(data):
 	var entity = data.entity

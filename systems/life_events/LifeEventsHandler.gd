@@ -16,6 +16,7 @@ var LifeEvent = preload("res://systems/life_events/LifeEvent.tscn")
 # Properties
 ###
 var life_events = [] setget _private_set
+var life_event_names = [] setget _private_set
 var life_event_active = false setget _private_set
 var current_life_event
 
@@ -56,6 +57,16 @@ func load_event_from_file(file_id): # Load the life event from a file.
 
 func add_life_event(data):
 	life_events.push_back(data)
+	life_event_names.push_back(data.event_name)
+
+func display_random():
+	var lower = 0	
+	var upper = life_event_names.size() - 1
+	
+	var e = math.rand(lower, upper)
+	var event_name = life_event_names[e]
+	
+	display(event_name)
 
 func display(event_name): # Display a new life event on screen.
 	# Ensure we have no active life events
@@ -78,7 +89,7 @@ func display(event_name): # Display a new life event on screen.
 	life_event_active = true
 
 func on_Door_accessed(data):
-	display("LifeEventTest1")
+	display_random()
 
 func reject_life_event():
 	remove_life_event()

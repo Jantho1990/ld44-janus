@@ -17,6 +17,7 @@ var LifeEvent = preload("res://systems/life_events/LifeEvent.tscn")
 ###
 var life_events = [] setget _private_set
 var life_event_active = false setget _private_set
+var current_life_event
 
 func _private_set(_throwaway_):
 	print("Private set: " + get_class())
@@ -57,6 +58,10 @@ func add_life_event(data):
 	life_events.push_back(data)
 
 func display(event_name): # Display a new life event on screen.
+	# Ensure we have no active life events
+	if life_event_active:
+		remove_life_event()
+		
 	var life_event_data
 	for le in life_events:
 		if le.event_name == event_name:
@@ -69,7 +74,16 @@ func display(event_name): # Display a new life event on screen.
 	life_event.reward = life_event_data.reward
 	
 	add_child(life_event)
+	current_life_event = life_event
 	life_event_active = true
 
 func on_Door_accessed(data):
 	display("LifeEventTest1")
+
+func reject_life_event():
+	remove_life_event()
+	print("Life event rejected!")
+
+func remove_life_event():
+	remove_child(current_life_event)
+	life_event_active = false

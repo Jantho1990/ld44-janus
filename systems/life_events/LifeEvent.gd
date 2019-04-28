@@ -15,3 +15,6 @@ func _ready():
 	text_value.text = text
 	cost_value.text = String(cost)
 	reward_value.text = String(reward)
+
+func _on_Reject_pressed():
+	get_parent().reject_life_event()

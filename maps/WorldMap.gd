@@ -25,7 +25,7 @@ func _ready():
 	else:
 		print("No player found.")
 		
-	EventBus.listen('door_accessed', self, 'on_Door_accessed')
+	EventBus.listen('life_event_accepted', self, 'on_Life_event_accepted')
 	
 	load_maps()
 	
@@ -105,9 +105,9 @@ func on_Portal_teleport(data):
 			$Player.position = portal.position + Vector2($Player.width, $Player.height) + Vector2(0, 3) # 3 seems to be the magic number to prevent falling animation while still allowing jumps
 			break
 
-func on_Door_accessed(data):
+func on_Life_event_accepted(data):
 	print("Door was accessed: ", data)
-	var current_map_index = data.map_index
+	var current_map_index = active_map.map_index
 	
 	# We will use this for generating the next map
 	# later on in the function

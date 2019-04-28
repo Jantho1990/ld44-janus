@@ -21,5 +21,8 @@ func _on_Reject_pressed():
 
 func _on_Accept_pressed():
 	EventBus.dispatch("hurt_player", { "amount": cost })
+	EventBus.dispatch("life_event_accepted", {
+		
+	})
 	Score.add(reward)
 	get_parent().remove_life_event()

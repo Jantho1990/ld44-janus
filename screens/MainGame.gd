@@ -1,13 +1,23 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var game_over_timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	EventBus.listen("player_dead", self, "on_Player_dead")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func on_Player_dead(data):
+	print("on player death")
+	var player = data.player
+	game_over_timer = Timer.new()
+	game_over_timer.start(1.5)
+	game_over_timer.connect("timeout", self, "_on_wait_over")
+	add_child(game_over_timer)
+	
+func _on_wait_over():
+	remove_child(game_over_timer)
+	game_over()
+
+func game_over():
+	print("game over")
+	$InterfaceLayer/GameOver.show()

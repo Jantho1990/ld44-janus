@@ -1,0 +1,28 @@
+[gd_scene format=2]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 682.0
+margin_bottom = 400.0
+
+[node name="GameOver" type="Label" parent="MarginContainer/CenterContainer"]
+margin_left = 304.0
+margin_top = 193.0
+margin_right = 377.0
+margin_bottom = 207.0
+text = "Game Over"
+

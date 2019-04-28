@@ -144,6 +144,8 @@ func die():
 				print(child.name)
 				child.set_physics_process(false)
 				child.set_process(false)
+		
+		EventBus.dispatch("player_dead", { "player": self })
 
 func get_dir_x():
 	return dir_x

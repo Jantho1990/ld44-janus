@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Score" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -582.0
+margin_bottom = -380.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PointsLabel" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 39.0
+margin_bottom = 17.0
+text = "Score:"
+
+[node name="PointsValue" type="Label" parent="."]
+margin_left = 43.0
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "0"
+

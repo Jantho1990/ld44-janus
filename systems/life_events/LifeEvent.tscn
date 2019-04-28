@@ -29,13 +29,12 @@ size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 margin_right = 682.0
-margin_bottom = 121.0
+margin_bottom = 104.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 margin_left = 245.0
-margin_top = 8.0
 margin_right = 437.0
-margin_bottom = 112.0
+margin_bottom = 104.0
 
 [node name="TextValue" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_right = 192.0

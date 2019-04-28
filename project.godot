@@ -56,6 +56,7 @@ math="*res://scripts/math.gd"
 helpers="*res://scripts/helpers.gd"
 EventBus="*res://scripts/EventBus.gd"
 Sound="*res://scripts/Sound.gd"
+Score="*res://scripts/Score.gd"
 
 [display]
 

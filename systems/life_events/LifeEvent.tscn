@@ -29,58 +29,88 @@ size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 margin_right = 682.0
-margin_bottom = 112.0
+margin_bottom = 121.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
-margin_left = 243.0
-margin_top = 24.0
-margin_right = 438.0
-margin_bottom = 88.0
+margin_left = 245.0
+margin_top = 8.0
+margin_right = 437.0
+margin_bottom = 112.0
 
-[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 195.0
+[node name="TextValue" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 192.0
 margin_bottom = 14.0
 text = "You did some awesome thing!"
 valign = 1
 
-[node name="CostsRewards" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 195.0
-margin_bottom = 32.0
+margin_right = 192.0
+margin_bottom = 72.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
 
-[node name="Cost" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CostsRewards"]
-margin_right = 78.0
-margin_bottom = 14.0
-text = "Pay 400 life."
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer"]
+margin_top = 20.0
+margin_right = 192.0
+margin_bottom = 34.0
+custom_constants/separation = 25
+alignment = 1
 
-[node name="Reward" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CostsRewards"]
-margin_left = 82.0
-margin_right = 195.0
+[node name="CostContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 10.0
+margin_right = 70.0
 margin_bottom = 14.0
-text = "Gain 1000 points."
+
+[node name="CostLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CostContainer"]
+margin_right = 32.0
+margin_bottom = 14.0
+text = "Cost:"
+
+[node name="CostValue" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CostContainer"]
+margin_left = 36.0
+margin_right = 60.0
+margin_bottom = 14.0
+text = "400"
+
+[node name="RewardContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 95.0
+margin_right = 181.0
+margin_bottom = 14.0
+
+[node name="RewardLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/RewardContainer"]
+margin_right = 50.0
+margin_bottom = 14.0
+text = "Reward:"
+
+[node name="RewardValue" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/RewardContainer"]
+margin_left = 54.0
+margin_right = 86.0
+margin_bottom = 14.0
+text = "1000"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 195.0
-margin_bottom = 40.0
+margin_top = 76.0
+margin_right = 192.0
+margin_bottom = 80.0
 
 [node name="Choices" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 195.0
-margin_bottom = 64.0
+margin_top = 84.0
+margin_right = 192.0
+margin_bottom = 104.0
 custom_constants/separation = 30
 alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/Choices"]
-margin_left = 20.0
-margin_right = 84.0
+margin_left = 19.0
+margin_right = 83.0
 margin_bottom = 20.0
 custom_styles/normal = SubResource( 1 )
 text = "Accept"
 
 [node name="Reject" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/Choices"]
-margin_left = 114.0
-margin_right = 174.0
+margin_left = 113.0
+margin_right = 173.0
 margin_bottom = 20.0
 custom_styles/normal = SubResource( 2 )
 text = "Reject"

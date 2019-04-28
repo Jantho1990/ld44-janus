@@ -24,6 +24,8 @@ func _private_set(_throwaway_):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_events_from_directory()
+	
+	EventBus.listen("door_accessed", self, "on_Door_accessed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -68,3 +70,6 @@ func display(event_name): # Display a new life event on screen.
 	
 	add_child(life_event)
 	life_event_active = true
+
+func on_Door_accessed(data):
+	display("LifeEventTest1")

@@ -31,7 +31,7 @@ margin_bottom = 22.0
 
 [node name="WorldMap" type="Node" parent="."]
 script = ExtResource( 6 )
-maps = [ "res://maps/test/TestMap1.tscn", "res://maps/test/TestMap2.tscn" ]
+maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn" ]
 
 [node name="Player" parent="WorldMap" instance=ExtResource( 7 )]
 z_index = 1

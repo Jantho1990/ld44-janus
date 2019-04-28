@@ -4,7 +4,7 @@
 
 [node name="DoorGenerator" type="Node2D"]
 script = ExtResource( 1 )
-Entity = "res://entities/doors/PlaceholderDoor/PlaceholderDoor.tscn"
+Entity = "res://entities/doors/Door/Door.tscn"
 spawn_at_start = 3
 spawn_rate = 0.0
 maximum_entities = 3

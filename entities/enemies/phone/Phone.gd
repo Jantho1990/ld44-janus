@@ -250,6 +250,8 @@ func jump():
 
 # Initiate movement.
 func move():
+	if is_on_floor():
+		jump_bump()
 	match int(direction.x):
 		-1:
 			$MovementHandler.move("left")
@@ -341,3 +343,7 @@ func make_patrol_points():
 func set_new_patrol():
 	patrol_points = make_patrol_points()
 	print(patrol_points, " ", position)
+
+func jump_bump(): # Add a slight bump, used for phone movement.
+	if is_on_floor():
+		motion.y -= 200

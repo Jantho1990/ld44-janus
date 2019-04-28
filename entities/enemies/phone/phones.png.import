@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/office-elements.png-868984d6d3a10bffaa2c0c2f1c9d6106.stex"
+path="res://.import/phones.png-66e25b2968468967bca4af9d459f6233.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/office/office-elements.png"
-dest_files=[ "res://.import/office-elements.png-868984d6d3a10bffaa2c0c2f1c9d6106.stex" ]
+source_file="res://entities/enemies/phone/phones.png"
+dest_files=[ "res://.import/phones.png-66e25b2968468967bca4af9d459f6233.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

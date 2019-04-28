@@ -1,4 +1,6 @@
-extends "EntityContainer.gd"
+extends "res://containers/EntityContainer/EntityContainer.gd"
+
+class_name EnemyContainer
 
 # The name of the callback function when the add event is registered.
 # This is meant to be set in code by whatever classes extend this

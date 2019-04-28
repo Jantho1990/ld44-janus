@@ -6,7 +6,7 @@ export(float) var attack_range = 100.00
 export(float) var attack_damage = 0.25
 export(float) var health = 1
 
-var type = "eyeball"
+var type = "email"
 
 enum STATES {
 	WANDER = 0,

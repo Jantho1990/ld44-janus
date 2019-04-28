@@ -114,4 +114,5 @@ margin_bottom = 20.0
 custom_styles/normal = SubResource( 2 )
 text = "Reject"
 
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Choices/Accept" to="." method="_on_Accept_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Choices/Reject" to="." method="_on_Reject_pressed"]

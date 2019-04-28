@@ -49,6 +49,7 @@ func _ready():
 	})
 	
 	EventBus.listen("WorldMap_loaded", self, "on_WorldMap_loaded")
+	EventBus.listen("hurt_player", self, "on_Hurt_player")
 	
 	EventBus.dispatch(name + "_loaded", {
 		"node": self
@@ -248,3 +249,9 @@ func spawn_acceptable(tilemap, pos):
 
 func width():
 	return $CollisionShape2D.shape.radius * 2
+
+func on_Hurt_player(data):
+	hit(data.amount)
+
+func on_Heal_player(data):
+	health.heal(data.amount)

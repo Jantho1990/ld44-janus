@@ -19,6 +19,7 @@ var life_events = [] setget _private_set
 var life_event_names = [] setget _private_set
 var life_event_active = false setget _private_set
 var current_life_event
+var life_event_door
 
 func _private_set(_throwaway_):
 	print("Private set: " + get_class())
@@ -89,6 +90,7 @@ func display(event_name): # Display a new life event on screen.
 	life_event_active = true
 
 func on_Door_accessed(data):
+	life_event_door = data.door
 	display_random()
 
 func reject_life_event():
@@ -98,3 +100,4 @@ func reject_life_event():
 func remove_life_event():
 	remove_child(current_life_event)
 	life_event_active = false
+	EventBus.dispatch("remove_door", { "entity": life_event_door })

@@ -49,4 +49,8 @@ func handle_interaction():
 	print("interaction")
 	EventBus.dispatch("door_accessed", {
 		"map_index": map_index,
+		"door": self
 	})
+	
+func destroy():
+	get_parent().remove_child(self)

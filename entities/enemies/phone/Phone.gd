@@ -171,6 +171,12 @@ func state_jump():
 
 func state_pursue():
 	$Sprite/AnimationPlayer.play("run")
+	
+	if state.just_set:
+		var anim_len = $Sprite/AnimationPlayer.current_animation_length
+		var p = math.rand(0, anim_len)
+		$Sprite/AnimationPlayer.seek(p)
+	
 	attack_move()
 
 func state_attack():
@@ -198,8 +204,8 @@ func attack_move():
 	motion.x += 50 * sign(motion.x)
 	if can_attack and abs((sight_target.position - position).x) <= ATTACK_RANGE:
 		state.swap("attack")
-	else:
-		state.pop()
+#	else:
+#		state.pop()
 
 # Calm down
 func stop_attack():

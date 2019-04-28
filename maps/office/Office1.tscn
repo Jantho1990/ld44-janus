@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/office/OfficeBackground.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/generators/DoorGenerator/DoorGenerator.tscn" type="PackedScene" id=6]
 [ext_resource path="res://containers/DoorContainer/DoorContainer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/enemies/phone/Phone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/enemies/email/Email.tscn" type="PackedScene" id=9]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,4 +49,7 @@ container_id = "Office1Doors"
 
 [node name="Phone" parent="." instance=ExtResource( 8 )]
 position = Vector2( 280, 520 )
+
+[node name="Email" parent="." instance=ExtResource( 9 )]
+position = Vector2( 500, 300 )
 

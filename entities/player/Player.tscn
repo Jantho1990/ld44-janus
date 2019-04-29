@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://systems/health/Health.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://entities/player/JanusGraphics.tscn" type="PackedScene" id=5]
 [ext_resource path="res://handlers/MovementHandler.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player/Pivot.gd" type="Script" id=7]
+[ext_resource path="res://systems/spellcaster/Spellcaster.tscn" type="PackedScene" id=8]
+[ext_resource path="res://spells/levitate/LevitateSpell.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
@@ -61,4 +63,13 @@ radial_accel = 18.4
 color = Color( 0.894118, 0.0431373, 0.0431373, 1 )
 hue_variation = 0.14
 hue_variation_random = 0.6
+
+[node name="Spellcaster" parent="." instance=ExtResource( 8 )]
+recharge_amount = 100.0
+active_spell = NodePath("Levitate")
+
+[node name="Levitate" parent="Spellcaster" instance=ExtResource( 9 )]
+cooldown = 5.0
+hotkey = 1
+duration = 3.0
 

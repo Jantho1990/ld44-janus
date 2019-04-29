@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/buffs/Levitate/LevitateBuff.gd" type="Script" id=1]
+[ext_resource path="res://sounds/fx/levitate.wav" type="AudioStream" id=2]
+
+[node name="LevitateBuff" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Levitate" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+

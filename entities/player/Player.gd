@@ -37,7 +37,7 @@ var motionHandler = {
 var immobile_timer
 
 onready var health = $Health
-onready var spellCaster = $SanityCaster
+onready var spellCaster = $Spellcaster
 
 func _ready():
 	$MovementHandler.set_defaults({
@@ -122,8 +122,8 @@ func _physics_process(delta):
 	
 	# Action/Spellcasting
 	if Input.is_action_just_pressed('cast'):
-		print("no casting for now")
-#		spellCaster.cast()
+#		print("no casting for now")
+		spellCaster.cast()
 	
 	# Final movement integration
 	motion = move_and_slide(motion, UP)

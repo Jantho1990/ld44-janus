@@ -1,4 +1,4 @@
-extends "res://containers/EntityContainer.gd"
+extends "res://containers/EntityContainer/EntityContainer.gd"
 
 func _init().():
 	container_type = "Bullet"

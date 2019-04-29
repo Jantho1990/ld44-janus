@@ -89,10 +89,16 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, 0.2)
 		playAnim('idle')
 	
+	# Register downward input for blink
+	if Input.is_action_pressed("ui_down"):
+		$MovementHandler.down()
+	
+	# Reset direction y in midair for blink
+	if not Input.is_action_pressed("ui_up"):
+		direction.y = 0
+	
 	# Jump/Fall
 	if is_on_floor():
-		if not Input.is_action_pressed("ui_up"):
-			direction.y = 0			
 		if Input.is_action_just_pressed('ui_up'):
 #			$Sounds/Jump.play()
 			$MovementHandler.up()
@@ -185,7 +191,6 @@ func _on_Immobile_timer_end():
 
 func move_down():
 	direction.y = 1
-	print("down")
 
 func move_idle():
 	pass

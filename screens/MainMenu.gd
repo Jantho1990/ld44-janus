@@ -28,3 +28,11 @@ func _on_StartButton_pressed():
 
 func _on_Music_finished():
 	$Sounds/Music.play()
+
+
+func _on_OptionsButton_pressed():
+	$CenterContainer.hide()
+	$OptionsMenu.show()
+
+func _on_Options_exit():
+	$CenterContainer.show()

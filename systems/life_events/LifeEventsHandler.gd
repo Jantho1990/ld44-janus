@@ -40,8 +40,8 @@ func load_events_from_directory():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while (file_name != ""):
-			if file_name != ".." and file_name != ".":
-				add_life_event(load_event_from_file(file_name.replace(".json", "")))			
+			if file_name != ".." and file_name != "." and file_name.find("json") == -1:
+				add_life_event(load_event_from_resource(file_name.replace(".tres", "")))			
 			file_name = dir.get_next()
 	else:
 		print("Invalid directory for life events: ", life_events_directory)
@@ -55,6 +55,11 @@ func load_event_from_file(file_id): # Load the life event from a file.
 	file.close()
 	obj.event_name = file_id
 	return obj
+
+func load_event_from_resource(resource_id):
+	var res = load('%s/%s.tres' % [life_events_directory, resource_id])
+	res.event_name = resource_id
+	return res
 
 func add_life_event(data):
 	life_events.push_back(data)

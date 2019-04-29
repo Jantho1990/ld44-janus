@@ -9,7 +9,7 @@ onready var reward_value = $MarginContainer/CenterContainer/VBoxContainer/Margin
 
 export(int) var cost = 200
 export(int) var reward = 1000
-export(String) var text = "Your message goes here."
+export(String, MULTILINE) var text = "Your message goes here."
 
 func _ready():
 	text_value.text = text

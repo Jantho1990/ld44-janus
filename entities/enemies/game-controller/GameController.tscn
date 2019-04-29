@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://entities/enemies/laundry/Laundry.gd" type="Script" id=1]
-[ext_resource path="res://entities/enemies/laundry/laundry.png" type="Texture" id=2]
+[ext_resource path="res://entities/enemies/game-controller/GameController.gd" type="Script" id=1]
+[ext_resource path="res://entities/enemies/game-controller/controller.png" type="Texture" id=2]
 [ext_resource path="res://systems/state/StackStateMachine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://handlers/MovementHandler.tscn" type="PackedScene" id=4]
 
@@ -112,7 +112,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=6]
 radius = 16.0
 
-[node name="Laundry" type="KinematicBody2D"]
+[node name="GameController" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 1 )

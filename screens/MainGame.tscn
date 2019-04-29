@@ -38,8 +38,8 @@ visible = false
 
 [node name="WorldMap" type="Node" parent="."]
 script = ExtResource( 7 )
-maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn", "res://maps/outdoor/Outdoor1.tscn", "res://maps/school/School1.tscn" ]
-active_map_index = 2
+maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn", "res://maps/outdoor/Outdoor1.tscn", "res://maps/school/School1.tscn", "res://maps/house/House2.tscn" ]
+active_map_index = 4
 
 [node name="Player" parent="WorldMap" instance=ExtResource( 8 )]
 z_index = 1

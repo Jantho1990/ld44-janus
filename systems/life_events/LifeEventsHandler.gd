@@ -57,6 +57,7 @@ func load_events_from_hardcode():
 func load_events_from_list():
 	for life_event in life_events_list:
 		var data = load(life_event)
+		data.event_name = life_event
 		add_life_event(data)
 
 func load_event_from_file(file_id): # Load the life event from a file.

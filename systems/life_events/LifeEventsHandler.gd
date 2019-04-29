@@ -6,6 +6,7 @@ class_name LifeEventsHandler
 # Configurable variables
 ###
 export(String) var life_events_directory = "res://life_events/"
+export(Array, String, FILE, "*.tscn") var life_events_list
 
 ###
 # Preloads
@@ -26,7 +27,7 @@ func _private_set(_throwaway_):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_events_from_directory()
+	load_events_from_list()
 	
 	EventBus.listen("door_accessed", self, "on_Door_accessed")
 
@@ -40,12 +41,23 @@ func load_events_from_directory():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while (file_name != ""):
-			if file_name != ".." and file_name != "." and file_name.find("json") == -1:
-				add_life_event(load_event_from_resource(file_name.replace(".tres", "")))			
+			if file_name != ".." and file_name != "." and file_name.find("tres") == -1:
+				add_life_event(load_event_from_file(file_name.replace(".json", "")))			
 			file_name = dir.get_next()
 	else:
 		print("Invalid directory for life events: ", life_events_directory)
 
+func load_events_from_hardcode():
+	var num = 3
+	for i in range(0, num):
+		var resource_id = "LifeEvent" + String(i)
+		var data = load_event_from_resource(resource_id)
+		add_life_event(data)
+
+func load_events_from_list():
+	for life_event in life_events_list:
+		var data = load(life_event)
+		add_life_event(data)
 
 func load_event_from_file(file_id): # Load the life event from a file.
 	var file = File.new()
@@ -54,6 +66,7 @@ func load_event_from_file(file_id): # Load the life event from a file.
 	var obj = JSON.parse(json).result
 	file.close()
 	obj.event_name = file_id
+	print(JSON.print(obj))
 	return obj
 
 func load_event_from_resource(resource_id):

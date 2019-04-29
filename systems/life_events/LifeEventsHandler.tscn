@@ -4,4 +4,5 @@
 
 [node name="LifeEventsHandler" type="Node"]
 script = ExtResource( 1 )
+life_events_list = [ "res://life_events/LifeEvent0.tres", "res://life_events/LifeEvent1.tres", "res://life_events/LifeEvent2.tres", "res://life_events/LifeEvent3.tres" ]
 

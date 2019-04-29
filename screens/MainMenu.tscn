@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://screens/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Uncial_Antiqua/Unical_Antiqua.tres" type="DynamicFont" id=2]
+[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=3]
+
+[node name="MainMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 682.0
+margin_bottom = 400.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 682.0
+margin_bottom = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 240.0
+margin_top = 125.0
+margin_right = 442.0
+margin_bottom = 274.0
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 202.0
+margin_bottom = 54.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 202.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 2 )
+text = "Impact!"
+align = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 202.0
+margin_bottom = 149.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 1.0
+margin_right = 201.0
+margin_bottom = 55.0
+custom_constants/separation = 15
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 35.0
+margin_right = 200.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 200, 20 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Quit"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 3 )
+volume_db = -7.0
+autoplay = true
+bus = "Music"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="finished" from="Sounds/Music" to="." method="_on_Music_finished"]

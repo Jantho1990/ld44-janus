@@ -114,13 +114,13 @@ func move_idle():
 
 func move_left():
 	motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
-	$Sprite.scale.x = -1
+#	$Sprite.scale.x = 1
 	direction.x = -1
 #	playAnim('run', -1, 1.6)
 
 func move_right():
 	motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
-	$Sprite.scale.x = 1
+#	$Sprite.scale.x = -1
 	direction.x = 1
 #	playAnim('run', -1, 1.6)
 

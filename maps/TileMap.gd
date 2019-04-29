@@ -2,6 +2,10 @@ extends TileMap
 
 onready var dimensions = calculate_dimensions()
 
+func _init():
+	pass
+	#collision_layer = 2 # 2 is the environment later, setting here because I don't want to update for every individual tilemap
+
 # Thanks to https://godotengine.org/qa/7450/how-do-i-get-tilemaps-size-height-and-width-with-script
 func calculate_dimensions():
 	# Get list of all positions where there is a tile

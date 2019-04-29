@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://systems/health/Health.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/player/Pivot.gd" type="Script" id=7]
 [ext_resource path="res://systems/spellcaster/Spellcaster.tscn" type="PackedScene" id=8]
 [ext_resource path="res://spells/levitate/LevitateSpell.tscn" type="PackedScene" id=9]
+[ext_resource path="res://spells/blink/BlinkSpell.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
@@ -72,4 +73,8 @@ active_spell = NodePath("Levitate")
 cooldown = 5.0
 hotkey = 1
 duration = 3.0
+
+[node name="BlinkSpell" parent="Spellcaster" instance=ExtResource( 10 )]
+cost = 1.0
+hotkey = 2
 

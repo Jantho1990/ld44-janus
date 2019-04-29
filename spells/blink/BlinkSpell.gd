@@ -28,7 +28,8 @@ func effect():
 		spell_direction = result.position - (Vector2(player.width, player.height) * player.direction)
 	else:
 		hit_pos = spell_direction
-	player.position = spell_direction	
+	player.position = spell_direction
+	$Sounds/Teleport.play()
 
 func castRay(player, spell_direction, collision):
 	var space_state = player.get_world_2d().direct_space_state
@@ -40,6 +41,7 @@ func castRay(player, spell_direction, collision):
 #	update()
 
 func _draw():
+	return
 	target = Spellcaster.Caster
 #	print("player ", player.position)
 	hit_pos = (spell_range * target.direction) + target.position

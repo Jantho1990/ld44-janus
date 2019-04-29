@@ -3,6 +3,8 @@ extends Node
 const MIN_VOLUME = 0.00
 const MAX_VOLUME = 1.00
 
+const MIN_DB = -80
+
 const channels = [
 	"Master",
 	"Music",
@@ -35,7 +37,7 @@ func _ready():
 		var audio_bus = AudioBus.new()
 		var bus = AudioServer.get_bus_index(channel)
 		audio_bus.max_db = AudioServer.get_bus_volume_db(bus)
-		audio_bus.min_db = -80
+		audio_bus.min_db = MIN_DB
 		audio_buses[channel] = audio_bus
 
 func _set_private(_throwaway_):

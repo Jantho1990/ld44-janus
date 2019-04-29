@@ -35,8 +35,9 @@ func castRay(player, spell_direction, collision):
 	var result = space_state.intersect_ray(player.position, spell_direction, [self, player], collision) # 61 is collision mask for everything except tilemap
 	return result
 
-func _physics_process(delta):
-	update()
+# Only needed when debugging the range.
+#func _physics_process(delta):
+#	update()
 
 func _draw():
 	target = Spellcaster.Caster

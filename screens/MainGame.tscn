@@ -33,6 +33,7 @@ margin_right = -10.0
 margin_bottom = 22.0
 
 [node name="LifeEventsHandler" parent="InterfaceLayer" instance=ExtResource( 5 )]
+pause_mode = 2
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 6 )]
 pause_mode = 2

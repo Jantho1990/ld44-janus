@@ -88,6 +88,9 @@ func display_random():
 	display(event_name)
 
 func display(event_name): # Display a new life event on screen.
+	# Pause game execution
+	get_tree().paused = true
+	
 	# Ensure we have no active life events
 	if life_event_active:
 		remove_life_event()
@@ -111,7 +114,11 @@ func on_Door_accessed(data):
 	life_event_door = data.door
 	display_random()
 
+func accept_life_event():
+	get_tree().paused = false
+
 func reject_life_event():
+	get_tree().paused = false
 	remove_life_event()
 	print("Life event rejected!")
 

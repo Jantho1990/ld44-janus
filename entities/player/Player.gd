@@ -100,7 +100,7 @@ func _physics_process(delta):
 	# Jump/Fall
 	if is_on_floor():
 		if Input.is_action_just_pressed('ui_up'):
-#			$Sounds/Jump.play()
+			$Sounds/Jump.play()
 			$MovementHandler.up()
 		else:
 			current_jump_height = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://systems/health/Health.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://systems/spellcaster/Spellcaster.tscn" type="PackedScene" id=8]
 [ext_resource path="res://spells/levitate/LevitateSpell.tscn" type="PackedScene" id=9]
 [ext_resource path="res://spells/blink/BlinkSpell.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sounds/fx/Jump1.wav" type="AudioStream" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
@@ -77,4 +78,10 @@ duration = 3.0
 [node name="BlinkSpell" parent="Spellcaster" instance=ExtResource( 10 )]
 cost = 1.0
 hotkey = 2
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+volume_db = -14.0
 

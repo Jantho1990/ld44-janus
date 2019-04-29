@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://screens/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/house/HouseBackground.tres" type="TileSet" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://tilesets/school/SchoolObjects.tres" type="TileSet" id=6]
 [ext_resource path="res://tilesets/office/OfficeTileset.tres" type="TileSet" id=7]
 [ext_resource path="res://fonts/Uncial_Antiqua/Unical_Antiqua.tres" type="DynamicFont" id=8]
-[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=9]
-[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://impact logo.png" type="Texture" id=9]
+[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=10]
+[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -27,6 +28,7 @@ margin_bottom = 400.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="BackgroundTiles" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = -1
 
 [node name="House" type="Node2D" parent="BackgroundTiles"]
@@ -73,6 +75,7 @@ format = 1
 tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0 )
 
 [node name="BackgroundTilesPX" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="Office" type="ParallaxLayer" parent="BackgroundTilesPX"]
 visible = false
@@ -92,21 +95,22 @@ margin_right = 682.0
 margin_bottom = 400.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 240.0
-margin_top = 108.0
-margin_right = 442.0
-margin_bottom = 292.0
+margin_left = 83.0
+margin_top = 69.0
+margin_right = 599.0
+margin_bottom = 331.0
 size_flags_vertical = 3
 custom_constants/separation = 40
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 202.0
-margin_bottom = 54.0
+margin_right = 516.0
+margin_bottom = 132.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+visible = false
 margin_right = 202.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 8 )
@@ -114,16 +118,23 @@ text = "Impact!"
 align = 1
 uppercase = true
 
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 516.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 516, 132 )
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 516, 132 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 94.0
-margin_right = 202.0
-margin_bottom = 184.0
+margin_top = 172.0
+margin_right = 516.0
+margin_bottom = 262.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 1.0
-margin_right = 201.0
+margin_left = 158.0
+margin_right = 358.0
 margin_bottom = 90.0
 custom_constants/separation = 15
 
@@ -153,12 +164,12 @@ text = "Quit"
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = -7.0
 autoplay = true
 bus = "Music"
 
-[node name="OptionsMenu" parent="." instance=ExtResource( 10 )]
+[node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0

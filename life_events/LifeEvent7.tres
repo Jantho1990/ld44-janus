@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-cost = 60
-reward = 10000
-text = "Teach a course at community ed."
+cost = 2160
+reward = 50000
+text = "Have a baby and raise it to be a good, productive member of society."
 

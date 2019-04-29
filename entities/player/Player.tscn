@@ -20,8 +20,8 @@ height = 14.0
 script = ExtResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
-current = 2000
-maximum = 2000
+current = 10800
+maximum = 10800
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

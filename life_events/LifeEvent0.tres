@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-cost = 100
-reward = 500
-text = "You did something important!"
+cost = 480
+reward = 5000
+text = "Advance your education."
 

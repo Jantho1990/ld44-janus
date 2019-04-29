@@ -61,7 +61,8 @@ func _ready():
 	})
 
 func _physics_process(delta):
-#	$SanityCaster.mana_current = $Health.current	
+#	$SanityCaster.mana_current = $Health.current
+	direction.x = 0
 	if $Health.current == 0:
 		die()
 	
@@ -90,6 +91,8 @@ func _physics_process(delta):
 	
 	# Jump/Fall
 	if is_on_floor():
+		if not Input.is_action_pressed("ui_up"):
+			direction.y = 0			
 		if Input.is_action_just_pressed('ui_up'):
 #			$Sounds/Jump.play()
 			$MovementHandler.up()
@@ -181,7 +184,8 @@ func _on_Immobile_timer_end():
 	remove_child(immobile_timer)
 
 func move_down():
-	pass
+	direction.y = 1
+	print("down")
 
 func move_idle():
 	pass
@@ -203,6 +207,7 @@ func move_right():
 
 func move_up():
 #	motion.y = JUMP_HEIGHT
+	direction.y = -1
 	jump()
 
 func jump():

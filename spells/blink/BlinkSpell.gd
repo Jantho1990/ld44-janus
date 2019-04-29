@@ -25,11 +25,10 @@ func effect():
 	var result = castRay(player, spell_direction, collision)
 #	breakpoint
 	if result:
-		hit_pos = result.position
-		breakpoint
-		pass
+		spell_direction = result.position - (Vector2(player.width, player.height) * player.direction)
 	else:
 		hit_pos = spell_direction
+	player.position = spell_direction	
 
 func castRay(player, spell_direction, collision):
 	var space_state = player.get_world_2d().direct_space_state
@@ -38,14 +37,14 @@ func castRay(player, spell_direction, collision):
 
 func _physics_process(delta):
 	update()
-	
+
 func _draw():
 	target = Spellcaster.Caster
 #	print("player ", player.position)
 	hit_pos = (spell_range * target.direction) + target.position
 	var result = castRay(target, hit_pos, $CollisionLayer.collision_mask)
 	if result:
-		hit_pos = result.position
+		hit_pos = result.position - (Vector2(target.width, target.height) * target.direction)
 	draw_circle(target.position, detect_radius, vis_color)
 	draw_line(target.position, (hit_pos), laser_color)
 	draw_circle((hit_pos), 5, laser_color)

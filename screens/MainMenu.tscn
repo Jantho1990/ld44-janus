@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://screens/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Uncial_Antiqua/Unical_Antiqua.tres" type="DynamicFont" id=2]
-[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=3]
-[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tilesets/house/HouseBackground.tres" type="TileSet" id=2]
+[ext_resource path="res://tilesets/house/HouseTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://tilesets/office/OfficeBackground.tres" type="TileSet" id=4]
+[ext_resource path="res://tilesets/outdoor/OutdoorObjects.tres" type="TileSet" id=5]
+[ext_resource path="res://tilesets/school/SchoolObjects.tres" type="TileSet" id=6]
+[ext_resource path="res://tilesets/office/OfficeTileset.tres" type="TileSet" id=7]
+[ext_resource path="res://fonts/Uncial_Antiqua/Unical_Antiqua.tres" type="DynamicFont" id=8]
+[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=9]
+[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=10]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -15,9 +21,71 @@ custom_constants/margin_bottom = 0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 682.0
 margin_bottom = 400.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="BackgroundTiles" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="House" type="Node2D" parent="BackgroundTiles"]
+visible = false
+
+[node name="HouseBackground" type="TileMap" parent="BackgroundTiles/House"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 128 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0 )
+
+[node name="House" type="TileMap" parent="BackgroundTiles/House"]
+visible = false
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 65536, 2, 65537, 131072, 2, 65537, 196608, 2, 65537, 262144, 2, 65537, 327680, 2, 65537, 393216, 2, 65537, 458752, 2, 65537, 524288, 2, 65537, 589824, 2, 65537, 655360, 2, 65537, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 786432, 3, 0, 786433, 3, 0, 786434, 3, 0, 786435, 3, 0, 786436, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 3, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 786458, 3, 0 )
+
+[node name="Office" type="Node2D" parent="BackgroundTiles"]
+visible = false
+
+[node name="OfficeBackground" type="TileMap" parent="BackgroundTiles/Office"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 96, 96 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0 )
+
+[node name="Outdoor" type="Node2D" parent="BackgroundTiles"]
+visible = false
+
+[node name="OutdoorBackground" type="TileMap" parent="BackgroundTiles/Outdoor"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 96, 96 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0 )
+
+[node name="School" type="Node2D" parent="BackgroundTiles"]
+visible = false
+
+[node name="SchoolBackground" type="TileMap" parent="BackgroundTiles/School"]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 96, 96 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0 )
+
+[node name="BackgroundTilesPX" type="ParallaxBackground" parent="."]
+
+[node name="Office" type="ParallaxLayer" parent="BackgroundTilesPX"]
+visible = false
+
+[node name="Office" type="TileMap" parent="BackgroundTilesPX/Office"]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 196608, 2, 0, 393216, 3, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 3, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 524288, 2, 65537, 589824, 2, 65537, 655360, 2, 65537, 720896, 2, 65537, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0 )
+
+[node name="Outdoor" type="ParallaxLayer" parent="BackgroundTilesPX"]
+
+[node name="School" type="ParallaxLayer" parent="BackgroundTilesPX"]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 682.0
@@ -41,7 +109,7 @@ alignment = 1
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_right = 202.0
 margin_bottom = 54.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 8 )
 text = "Impact!"
 align = 1
 uppercase = true
@@ -85,12 +153,12 @@ text = "Quit"
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 3 )
+stream = ExtResource( 9 )
 volume_db = -7.0
 autoplay = true
 bus = "Music"
 
-[node name="OptionsMenu" parent="." instance=ExtResource( 4 )]
+[node name="OptionsMenu" parent="." instance=ExtResource( 10 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0

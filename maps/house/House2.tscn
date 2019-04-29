@@ -48,8 +48,8 @@ script = ExtResource( 5 )
 [node name="DoorGenerator" parent="." instance=ExtResource( 6 )]
 spawn_rate = 0.001
 maximum_increase_limit = 3
-target_container_id = "House1Doors"
+target_container_id = "House2Doors"
 
 [node name="DoorContainer" parent="." instance=ExtResource( 7 )]
-container_id = "House1Doors"
+container_id = "House2Doors"
 

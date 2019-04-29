@@ -3,7 +3,7 @@ extends HBoxContainer
 ###
 # Onready properties
 ###
-onready var points_value = $PointsValue
+onready var points_value = $MarginContainer/HBoxContainer/PointsValue
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

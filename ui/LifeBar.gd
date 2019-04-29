@@ -1,6 +1,6 @@
 extends Control
 
-onready var progress_bar = $HBoxContainer/ProgressBar
+onready var progress_bar = $MarginContainer/HBoxContainer/ProgressBar
 
 func _ready():
 	EventBus.listen("update_ui_life_bar", self, "on_Update_ui_life_bar")

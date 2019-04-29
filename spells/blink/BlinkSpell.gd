@@ -26,14 +26,14 @@ func effect():
 #	breakpoint
 	if result:
 		hit_pos = result.position
-#		breakpoint
+		breakpoint
 		pass
 	else:
 		hit_pos = spell_direction
 
 func castRay(player, spell_direction, collision):
 	var space_state = player.get_world_2d().direct_space_state
-	var result = space_state.intersect_ray(player.position, spell_direction, [self, player]) # 61 is collision mask for everything except tilemap
+	var result = space_state.intersect_ray(player.position, spell_direction, [self, player], collision) # 61 is collision mask for everything except tilemap
 	return result
 
 func _physics_process(delta):
@@ -46,7 +46,6 @@ func _draw():
 	var result = castRay(target, hit_pos, $CollisionLayer.collision_mask)
 	if result:
 		hit_pos = result.position
-		print("hit")
 	draw_circle(target.position, detect_radius, vis_color)
 	draw_line(target.position, (hit_pos), laser_color)
 	draw_circle((hit_pos), 5, laser_color)

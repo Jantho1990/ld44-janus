@@ -21,3 +21,6 @@ func _on_wait_over():
 func game_over():
 	print("game over")
 	$InterfaceLayer/GameOver.show()
+
+func _on_Music_finished():
+	$Sounds/Music.play()

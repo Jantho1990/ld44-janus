@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://screens/MainGame.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameOver.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/PassageOfTime.gd" type="Script" id=8]
 [ext_resource path="res://listeners/SetEntityTargetListener.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sounds/music/Impact! Main Game.wav" type="AudioStream" id=10]
 
 [node name="MainGame" type="Node"]
 script = ExtResource( 1 )
@@ -49,4 +50,13 @@ event_name = "add_enemy"
 event_type = "enemy"
 target_entity = NodePath("../WorldMap/Player")
 
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 10 )
+volume_db = -7.0
+autoplay = true
+bus = "Music"
+
 [connection signal="timeout" from="PassageOfTime" to="PassageOfTime" method="_on_PassageOfTime_timeout"]
+[connection signal="finished" from="Sounds/Music" to="." method="_on_Music_finished"]

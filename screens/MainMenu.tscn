@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://screens/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/house/HouseBackground.tres" type="TileSet" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://tilesets/office/OfficeTileset.tres" type="TileSet" id=7]
 [ext_resource path="res://fonts/Uncial_Antiqua/Unical_Antiqua.tres" type="DynamicFont" id=8]
 [ext_resource path="res://impact logo.png" type="Texture" id=9]
-[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=10]
-[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ui/Theme.tres" type="Theme" id=10]
+[ext_resource path="res://sounds/music/Impact! Main Menu.wav" type="AudioStream" id=11]
+[ext_resource path="res://ui/OptionsMenu.tscn" type="PackedScene" id=12]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -144,12 +145,14 @@ margin_bottom = 20.0
 rect_min_size = Vector2( 200, 20 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource( 10 )
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 35.0
 margin_right = 200.0
 margin_bottom = 55.0
+theme = ExtResource( 10 )
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -159,17 +162,18 @@ margin_bottom = 90.0
 rect_min_size = Vector2( 200, 20 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource( 10 )
 text = "Quit"
 
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = -7.0
 autoplay = true
 bus = "Music"
 
-[node name="OptionsMenu" parent="." instance=ExtResource( 11 )]
+[node name="OptionsMenu" parent="." instance=ExtResource( 12 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0

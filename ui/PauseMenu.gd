@@ -16,6 +16,7 @@ func on_pause_button_pressed():
 	show()
 
 func on_pause_popup_close_pressed():
+	print("hit")
 	hide()
 	get_tree().paused = false
 

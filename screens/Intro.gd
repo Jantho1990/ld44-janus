@@ -1,5 +1,5 @@
 extends MarginContainer
 
 func _input(event):
-	if event.is_action_pressed("cast"):
-		get_tree().change_scene("res://screens/Game.tscn")
+	if event.is_action_pressed("ui_accept"):
+		get_tree().change_scene("res://screens/MainGame.tscn")

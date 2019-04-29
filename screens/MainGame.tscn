@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://screens/MainGame.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameOver.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/LifeBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/Score.tscn" type="PackedScene" id=4]
 [ext_resource path="res://systems/life_events/LifeEventsHandler.tscn" type="PackedScene" id=5]
-[ext_resource path="res://maps/WorldMap.gd" type="Script" id=6]
-[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/PassageOfTime.gd" type="Script" id=8]
-[ext_resource path="res://listeners/SetEntityTargetListener.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sounds/music/Impact! Main Game.wav" type="AudioStream" id=10]
+[ext_resource path="res://ui/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/WorldMap.gd" type="Script" id=7]
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/PassageOfTime.gd" type="Script" id=9]
+[ext_resource path="res://listeners/SetEntityTargetListener.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sounds/music/Impact! Main Game.wav" type="AudioStream" id=11]
 
 [node name="MainGame" type="Node"]
 script = ExtResource( 1 )
@@ -31,30 +32,35 @@ margin_bottom = 22.0
 
 [node name="LifeEventsHandler" parent="InterfaceLayer" instance=ExtResource( 5 )]
 
+[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 6 )]
+pause_mode = 2
+visible = false
+
 [node name="WorldMap" type="Node" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn", "res://maps/outdoor/Outdoor1.tscn", "res://maps/school/School1.tscn" ]
 active_map_index = 2
 
-[node name="Player" parent="WorldMap" instance=ExtResource( 7 )]
+[node name="Player" parent="WorldMap" instance=ExtResource( 8 )]
 z_index = 1
 
 [node name="PassageOfTime" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
-[node name="SetEmailTargetListener" parent="." instance=ExtResource( 9 )]
+[node name="SetEmailTargetListener" parent="." instance=ExtResource( 10 )]
 entity_type = "email"
 event_name = "add_enemy"
 event_type = "enemy"
 target_entity = NodePath("../WorldMap/Player")
 
 [node name="Sounds" type="Node" parent="."]
+pause_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 10 )
-volume_db = -7.0
+stream = ExtResource( 11 )
+volume_db = -6.0
 autoplay = true
 bus = "Music"
 

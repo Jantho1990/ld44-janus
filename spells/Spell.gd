@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const _class_name = "Spell"
 

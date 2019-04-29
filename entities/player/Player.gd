@@ -94,7 +94,7 @@ func _physics_process(delta):
 		$MovementHandler.down()
 	
 	# Reset direction y in midair for blink
-	if not Input.is_action_pressed("ui_up"):
+	if not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		direction.y = 0
 	
 	# Jump/Fall

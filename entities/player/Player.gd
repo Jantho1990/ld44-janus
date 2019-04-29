@@ -244,8 +244,8 @@ func spawn_acceptable(tilemap, pos):
 				return false
 	
 	if tilemap.get_cell(above.x, above.y) == -1 \
-		and tilemap.get_cell(cell.x, cell.y) == -1 \
-		and tilemap.get_cell(below.x, below.y) != -1:
+		and tilemap.get_cell(cell.x, cell.y) == 0 \
+		and tilemap.get_cell(below.x, below.y) >= 1:
 			return true
 	return false
 

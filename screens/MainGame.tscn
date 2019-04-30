@@ -41,8 +41,9 @@ visible = false
 
 [node name="WorldMap" type="Node" parent="."]
 script = ExtResource( 7 )
-maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn", "res://maps/outdoor/Outdoor1.tscn", "res://maps/school/School1.tscn", "res://maps/house/House2.tscn", "res://maps/office/Office2.tscn", "res://maps/office/Office3.tscn", "res://maps/outdoor/Outdoor2.tscn", "res://maps/outdoor/Outdoor3.tscn" ]
+maps = [ "res://maps/house/House1.tscn", "res://maps/office/Office1.tscn", "res://maps/outdoor/Outdoor1.tscn", "res://maps/school/School1.tscn", "res://maps/house/House2.tscn", "res://maps/office/Office2.tscn", "res://maps/office/Office3.tscn", "res://maps/outdoor/Outdoor2.tscn", "res://maps/outdoor/Outdoor3.tscn", "res://maps/office/Office4.tscn", "res://maps/school/School2.tscn", "res://maps/school/School3.tscn" ]
 active_map_index = 2
+random_start_map = true
 
 [node name="Player" parent="WorldMap" instance=ExtResource( 8 )]
 z_index = 1

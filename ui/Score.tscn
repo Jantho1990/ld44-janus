@@ -19,6 +19,7 @@ margin_right = 47.0
 margin_bottom = 32.0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+visible = false
 margin_right = 47.0
 margin_bottom = 32.0
 size_flags_horizontal = 3

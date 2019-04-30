@@ -13,7 +13,8 @@ export(String, MULTILINE) var text = "Your message goes here."
 
 func _ready():
 	text_value.text = text
-	cost_value.text = "-" + String(cost)
+#	cost_value.text = "-" + String(cost)
+	cost_value.text = helpers.get_time_string(cost)
 	reward_value.text = String(reward)
 
 func _on_Reject_pressed():

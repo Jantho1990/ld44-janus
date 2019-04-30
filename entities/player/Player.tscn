@@ -71,12 +71,13 @@ recharge_amount = 100.0
 active_spell = NodePath("Levitate")
 
 [node name="Levitate" parent="Spellcaster" instance=ExtResource( 9 )]
-cooldown = 5.0
+cooldown = 8.0
 hotkey = 1
 duration = 3.0
 
 [node name="BlinkSpell" parent="Spellcaster" instance=ExtResource( 10 )]
 cost = 1.0
+cooldown = 3.0
 hotkey = 2
 
 [node name="Sounds" type="Node" parent="."]
